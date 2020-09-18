@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import Box from '../Box'
+import Spacer from '../Spacer'
 
 const ModalActions: React.FC = ({ children }) => {
+  const l = React.Children.toArray(children).length
   return (
     <Box
       alignItems="center"
@@ -11,7 +13,12 @@ const ModalActions: React.FC = ({ children }) => {
       paddingHorizontal={4}
       row
     >
-      {children}
+      {React.Children.map(children, (child, i) => (
+        <Fragment>
+          {child}
+          {i < l - 1 && <Spacer />}
+        </Fragment>
+      ))}
     </Box>
   )
 }
