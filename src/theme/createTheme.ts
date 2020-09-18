@@ -55,6 +55,7 @@ const createTheme = (config?: ThemeConfig): Theme => {
     shadowColor: grey[300],
     siteWidth,
     spacing: {
+      0: 0,
       1: 4,
       2: 8,
       3: 16,

@@ -9,9 +9,9 @@ interface CardTitleProps {
 }
 
 const CardTitle: React.FC<CardTitleProps> = ({ text }) => (
-  <Box>
+  <Box marginTop={4}>
     <StyledCardTitle>{text}</StyledCardTitle>
-    <Box paddingHorizontal={4}>
+    <Box marginTop={4} marginHorizontal={4}>
       <Separator />
     </Box>
   </Box>
@@ -22,7 +22,6 @@ const StyledCardTitle = styled.span`
   flex: 1;
   flex-direction: column;
   font-size: 18px;
-  padding: ${props => props.theme.spacing[4]}px;
   text-align: center;
 `
 

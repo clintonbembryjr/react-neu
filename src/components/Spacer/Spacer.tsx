@@ -32,6 +32,8 @@ interface StyledSpacerProps {
 
 const StyledSpacer = styled.div<StyledSpacerProps>`
   height: ${props => props.size}px;
+  min-height: ${props => props.size}px;
+  min-width: ${props => props.size}px;
   width: ${props => props.size}px;
 `
 

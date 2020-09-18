@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  CardIcon,
   CardTitle,
   createTheme,
   Input,
@@ -11,12 +12,15 @@ import {
   ModalActions,
   ModalContent,
   ModalTitle,
+  Notice,
+  NoticeContent,
+  NoticeIcon,
   Spacer,
   Switch,
   SwitchButton,
   ThemeProvider,
-} from 'react-neu-ui'
-import 'react-neu-ui/dist/index.css'
+} from 'react-neu'
+import 'react-neu/dist/index.css'
 
 const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -39,7 +43,12 @@ const App = () => {
         maxWidth: 512,
         width: '100%'
       }}>
+        <Notice>
+          <NoticeIcon>🍠</NoticeIcon>
+          <NoticeContent>Test</NoticeContent>
+        </Notice>
         <Card>
+          <CardIcon>🍠</CardIcon>
           <CardTitle text="Card Title" />
           <CardContent>
             <Button

@@ -8,12 +8,20 @@ export interface BoxProps {
   flex?: number | string,
   height?: number,
   justifyContent?: 'center' | 'flex-end' | 'flex-start',
+  margin?: number,
+  marginBottom?: number,
+  marginHorizontal?: number,
+  marginLeft?: number,
+  marginRight?: number,
+  marginTop?: number,
+  marginVertical?: number,
   padding?: number,
   paddingBottom?: number,
   paddingHorizontal?: number,
   paddingLeft?: number,
   paddingRight?: number,
   paddingTop?: number,
+  paddingVertical?: number,
   reverse?: boolean,
   row?: boolean,
 }
@@ -21,12 +29,20 @@ export interface BoxProps {
 const Box: React.FC<BoxProps> = ({
   children,
   column,
+  margin = 0,
+  marginBottom = 0,
+  marginHorizontal = 0,
+  marginLeft = 0,
+  marginRight = 0,
+  marginTop = 0,
+  marginVertical = 0,
   padding = 0,
   paddingBottom = 0,
   paddingHorizontal = 0,
   paddingLeft = 0,
   paddingRight = 0,
   paddingTop = 0,
+  paddingVertical = 0,
   reverse,
   row,
   ...props
@@ -51,17 +67,21 @@ const Box: React.FC<BoxProps> = ({
     return undefined
   }, [column])
 
-
   return (
     <StyledBox
       {...props}
       display={display}
       flexDirection={flexDirection}
+      margin={spacing[margin || 0]}
+      marginBottom={spacing[marginBottom || marginVertical || 0]}
+      marginLeft={spacing[marginLeft || marginHorizontal || 0]}
+      marginRight={spacing[marginRight || marginHorizontal || 0]}
+      marginTop={spacing[marginTop || marginVertical || 0]}
       padding={spacing[padding || 0]}
-      paddingBottom={spacing[paddingBottom || 0]}
+      paddingBottom={spacing[paddingBottom || paddingVertical || 0]}
       paddingLeft={spacing[paddingLeft || paddingHorizontal || 0]}
       paddingRight={spacing[paddingRight || paddingHorizontal || 0]}
-      paddingTop={spacing[paddingTop || 0]}
+      paddingTop={spacing[paddingTop || paddingVertical || 0]}
     >
       {children}
     </StyledBox>
@@ -80,11 +100,16 @@ const StyledBox = styled.div<StyledBoxProps>`
   flex-direction: ${props => props.flexDirection};
   height: ${props => props.height}px;
   justify-content: ${props => props.justifyContent};
-  padding: ${props => props.padding}px;
-  padding-bottom: ${props => props.paddingBottom}px;
-  padding-left: ${props => props.paddingLeft}px;
-  padding-right: ${props => props.paddingRight}px;
-  padding-top: ${props => props.paddingTop}px;
+  margin: ${props => props.margin ? props.margin + 'px' : undefined};
+  margin-bottom: ${props => props.marginBottom ? props.marginBottom + 'px' : undefined};
+  margin-left: ${props => props.marginLeft ? props.marginLeft + 'px' : undefined};
+  margin-right: ${props => props.marginRight ? props.marginRight + 'px' : undefined};
+  margin-top: ${props => props.marginTop ? props.marginTop + 'px' : undefined};
+  padding: ${props => props.padding ? props.padding + 'px' : undefined};
+  padding-bottom: ${props => props.paddingBottom ? props.paddingBottom + 'px' : undefined};
+  padding-left: ${props => props.paddingLeft ? props.paddingLeft + 'px' : undefined};
+  padding-right: ${props => props.paddingRight ? props.paddingRight + 'px' : undefined};
+  padding-top: ${props => props.paddingTop ? props.paddingTop + 'px' : undefined};
 `
 
 export default Box
