@@ -39,6 +39,7 @@ const mobileKeyframes = keyframes`
 
 const StyledModalWrapper = styled.div`
   align-items: center;
+  backdrop-filter: blur(5px);
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -51,7 +52,7 @@ const StyledModalWrapper = styled.div`
 `
 
 const StyledModalBackdrop = styled.div`
-  background: ${props => props.theme.baseColor};
+  background: ${props => props.theme.colors.grey[600]};
   opacity: 0.75;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
