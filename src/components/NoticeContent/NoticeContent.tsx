@@ -5,7 +5,7 @@ import Box from '../Box'
 const NoticeContent: React.FC = ({ children }) => (
   <Box
     flex={1}
-    paddingHorizontal={2}
+    paddingHorizontal={3}
   >
     {children}
   </Box>
