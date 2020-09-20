@@ -4,10 +4,8 @@ import Box from '../Box'
 
 const NoticeContent: React.FC = ({ children }) => (
   <Box
-    alignItems="center"
     flex={1}
-    paddingHorizontal={4}
-    row
+    paddingHorizontal={2}
   >
     {children}
   </Box>
