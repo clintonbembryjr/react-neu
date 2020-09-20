@@ -25,6 +25,7 @@ export interface BoxProps {
   paddingRight?: number,
   paddingTop?: number,
   paddingVertical?: number,
+  position?: 'relative' | 'absolute',
   reverse?: boolean,
   row?: boolean,
 }
@@ -49,6 +50,7 @@ const Box: React.FC<BoxProps> = ({
   paddingRight = 0,
   paddingTop = 0,
   paddingVertical = 0,
+  position,
   reverse,
   row,
   ...props
@@ -91,6 +93,7 @@ const Box: React.FC<BoxProps> = ({
       paddingLeft={spacing[paddingLeft || paddingHorizontal || 0]}
       paddingRight={spacing[paddingRight || paddingHorizontal || 0]}
       paddingTop={spacing[paddingTop || paddingVertical || 0]}
+      position={position}
     >
       {children}
     </StyledBox>
@@ -122,6 +125,7 @@ const StyledBox = styled.div<StyledBoxProps>`
   padding-left: ${props => props.paddingLeft ? props.paddingLeft + 'px' : undefined};
   padding-right: ${props => props.paddingRight ? props.paddingRight + 'px' : undefined};
   padding-top: ${props => props.paddingTop ? props.paddingTop + 'px' : undefined};
+  position: ${props => props.position};
 `
 
 export default Box
