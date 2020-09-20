@@ -33,6 +33,7 @@ const Notice: React.FC<NoticeProps> = ({ children, onDismiss }) => {
             <Button
               onClick={handleDismissClick}
               round
+              size="sm"
               variant="tertiary"
             >
               <CloseIcon />
