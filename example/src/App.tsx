@@ -20,7 +20,6 @@ import {
   SwitchButton,
   ThemeProvider,
 } from 'react-neu'
-import 'react-neu/dist/index.css'
 
 const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
