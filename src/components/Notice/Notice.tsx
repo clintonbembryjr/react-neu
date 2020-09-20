@@ -1,4 +1,5 @@
 import React, { Fragment, useCallback, useState } from 'react'
+import styled from 'styled-components'
 
 import Box from '../Box'
 import Button from '../Button'
@@ -23,11 +24,12 @@ const Notice: React.FC<NoticeProps> = ({ children, onDismiss }) => {
         <Surface>
           <Box
             alignItems="center"
-            height={96}
-            paddingHorizontal={4}
+            padding={4}
             row
           >
-            {children}
+            <StyledInner>
+              {children}
+            </StyledInner>
             <Button
               onClick={handleDismissClick}
               round
@@ -41,5 +43,15 @@ const Notice: React.FC<NoticeProps> = ({ children, onDismiss }) => {
     </Fragment>
   )
 }
+
+const StyledInner = styled.div`
+  align-items: center;
+  display: flex;
+  width: 100%;
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+`
 
 export default Notice

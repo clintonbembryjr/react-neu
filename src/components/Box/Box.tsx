@@ -15,6 +15,9 @@ export interface BoxProps {
   marginRight?: number,
   marginTop?: number,
   marginVertical?: number,
+  minHeight?: number,
+  minWidth?: number,
+  overflow?: string,
   padding?: number,
   paddingBottom?: number,
   paddingHorizontal?: number,
@@ -36,6 +39,9 @@ const Box: React.FC<BoxProps> = ({
   marginRight = 0,
   marginTop = 0,
   marginVertical = 0,
+  minHeight,
+  minWidth,
+  overflow,
   padding = 0,
   paddingBottom = 0,
   paddingHorizontal = 0,
@@ -77,6 +83,9 @@ const Box: React.FC<BoxProps> = ({
       marginLeft={spacing[marginLeft || marginHorizontal || 0]}
       marginRight={spacing[marginRight || marginHorizontal || 0]}
       marginTop={spacing[marginTop || marginVertical || 0]}
+      minHeight={minHeight}
+      minWidth={minWidth}
+      overflow={overflow}
       padding={spacing[padding || 0]}
       paddingBottom={spacing[paddingBottom || paddingVertical || 0]}
       paddingLeft={spacing[paddingLeft || paddingHorizontal || 0]}
@@ -98,13 +107,16 @@ const StyledBox = styled.div<StyledBoxProps>`
   display: ${props => props.display};
   flex: ${props => props.flex};
   flex-direction: ${props => props.flexDirection};
-  height: ${props => props.height}px;
+  height: ${props => props.height ? props.height + 'px' : undefined};
   justify-content: ${props => props.justifyContent};
   margin: ${props => props.margin ? props.margin + 'px' : undefined};
   margin-bottom: ${props => props.marginBottom ? props.marginBottom + 'px' : undefined};
   margin-left: ${props => props.marginLeft ? props.marginLeft + 'px' : undefined};
   margin-right: ${props => props.marginRight ? props.marginRight + 'px' : undefined};
   margin-top: ${props => props.marginTop ? props.marginTop + 'px' : undefined};
+  min-height: ${props => props.minHeight ? props.minHeight + 'px' : undefined};
+  min-width: ${props => props.minWidth ? props.minWidth + 'px' : undefined};
+  overflow: ${props => props.overflow};
   padding: ${props => props.padding ? props.padding + 'px' : undefined};
   padding-bottom: ${props => props.paddingBottom ? props.paddingBottom + 'px' : undefined};
   padding-left: ${props => props.paddingLeft ? props.paddingLeft + 'px' : undefined};

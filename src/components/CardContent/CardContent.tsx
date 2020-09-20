@@ -3,7 +3,7 @@ import React from 'react'
 import Box from '../Box'
 
 const CardContent: React.FC = ({ children }) => (
-  <Box column padding={4}>
+  <Box column margin={4}>
     {children}
   </Box>
 )

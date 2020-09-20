@@ -1,10 +1,13 @@
 import React from 'react'
 
+import Box from '../Box'
 import Surface from '../Surface'
 
 const Card: React.FC = ({ children }) => (
   <Surface elevation="N1">
-    {children}
+    <Box overflow="hidden">
+      {children}
+    </Box>
   </Surface>
 )
 
