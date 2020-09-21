@@ -163,7 +163,7 @@ const generateSurfaces = (
       shadow: `inset -2px 2px 4px ${shadow}`,
     },
     0: {
-      background: base.main,
+      background: baseBg,
       border: `0`,
       highlight: `inset -1px 1px 0px ${highlight}`,
       shadow: `0px 0px 1px 1px ${shadow}`,
