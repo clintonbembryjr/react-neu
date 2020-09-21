@@ -31,7 +31,7 @@ const Home: React.FC = () => {
 
           </CardContent>
           <CardActions>
-            <Button onClick={handlePresentModal} text="Confirm" />
+            <Button disabled onClick={handlePresentModal} text="Confirm" />
           </CardActions>
         </Card>
       </Container>

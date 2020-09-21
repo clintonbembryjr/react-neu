@@ -80,13 +80,23 @@ const Button: React.FC<ButtonProps> = ({
       buttonColor = colors.white
   }
 
+  const ButtonText = useMemo(() => {
+    return (
+      <StyledButtonText color={buttonColor} disabled={disabled}>{text}</StyledButtonText>
+    )
+  }, [
+    buttonColor,
+    disabled,
+    text,
+  ])
+
   const ButtonChild = useMemo(() => {
     if (to) {
-      return <StyledLink to={to}>{text}</StyledLink>
+      return <StyledLink to={to}>{ButtonText}</StyledLink>
     } else if (href) {
-      return <StyledExternalLink href={href} target="__blank">{text}</StyledExternalLink>
+      return <StyledExternalLink href={href} target="__blank">{ButtonText}</StyledExternalLink>
     } else {
-      return text
+      return ButtonText
     }
   }, [href, text, to])
 
@@ -128,7 +138,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   border-radius: ${props => props.theme.borderRadius}px;
   box-shadow: ${props => props.boxShadow};
   box-sizing: border-box;
-  color: ${props => !props.disabled ? props.color : `${props.color}55`};
+  color: ${props => !props.disabled ? props.color : `${props.color}`};
   cursor: pointer;
   display: flex;
   font-size: ${props => props.fontSize}px;
@@ -143,6 +153,15 @@ const StyledButton = styled.button<StyledButtonProps>`
   pointer-events: ${props => !props.disabled ? undefined : 'none'};
   white-space: nowrap;
   width: ${props => props.full ? '100%' : undefined};
+`
+
+interface StyledButtonTextProps {
+  color: string,
+  disabled?: boolean
+}
+const StyledButtonText = styled.span<StyledButtonTextProps>`
+  color: ${props => props.color};
+  opacity: ${props => props.disabled ? 0.66 : 1};
 `
 
 const StyledExternalLink = styled.a`
