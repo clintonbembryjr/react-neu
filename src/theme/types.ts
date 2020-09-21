@@ -75,7 +75,9 @@ export interface ThemeContextValue {
 
 export interface ThemeConfig {
   baseColor?: HSLA,
+  baseColorDark?: HSLA,
   baseGreyColor?: HSLA,
+  baseGreyColorDark?: HSLA,
   borderRadius?: number,
   siteWidth?: number
 }
