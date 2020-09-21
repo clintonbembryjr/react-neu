@@ -5,16 +5,18 @@ import ThemeContext from './ThemeContext'
 import { Theme } from './types'
 
 export interface ThemeProviderProps {
+  darkModeEnabled?: boolean,
   darkTheme: Theme,
   lightTheme: Theme
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
+  darkModeEnabled,
   darkTheme,
   lightTheme,
 }) => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(darkModeEnabled)
   const activeTheme = useMemo(() => {
     if (darkMode) return darkTheme
     return lightTheme
