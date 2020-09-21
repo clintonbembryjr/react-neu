@@ -97,7 +97,7 @@ const createTheme = (config?: ThemeConfig): {
 
   const darkTheme: Theme = {
     ...lightTheme,
-    baseBg: `radial-gradient(circle at top, ${greyDark[800]}, ${greyDark[900]})`,
+    baseBg: `radial-gradient(circle at top, ${greyDark[700]}, ${greyDark[800]})`,
     baseColor: greyDark[800],
     colors: colorsDark,
     highlightColor: greyDark[700],
@@ -163,7 +163,7 @@ const generateSurfaces = (
       shadow: `inset -2px 2px 4px ${shadow}`,
     },
     0: {
-      background: baseBg,
+      background: base.main,
       border: `0`,
       highlight: `inset -1px 1px 0px ${highlight}`,
       shadow: `0px 0px 1px 1px ${shadow}`,

@@ -28,11 +28,16 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
     setDarkMode(!darkMode)
   }, [darkMode, setDarkMode])
 
-  const { baseColor, textColor } = activeTheme
+  const { baseBg, textColor } = activeTheme
   useEffect(() => {
-    document.body.style.background = baseColor
+    document.body.style.background = baseBg
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundSize = 'cover'
     document.body.style.color = textColor
-  }, [baseColor])
+  }, [
+    baseBg,
+    textColor,
+  ])
 
   return (
     <ThemeContext.Provider value={{
