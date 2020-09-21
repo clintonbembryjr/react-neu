@@ -98,7 +98,12 @@ const Button: React.FC<ButtonProps> = ({
     } else {
       return ButtonText
     }
-  }, [href, text, to])
+  }, [
+    ButtonText,
+    href,
+    text,
+    to
+  ])
 
   return (
     <StyledButton
@@ -160,7 +165,7 @@ interface StyledButtonTextProps {
   disabled?: boolean
 }
 const StyledButtonText = styled.span<StyledButtonTextProps>`
-  color: ${props => props.color};
+  color: ${props => props.disabled ? props.theme.textColor : props.color};
   opacity: ${props => props.disabled ? 0.66 : 1};
 `
 
