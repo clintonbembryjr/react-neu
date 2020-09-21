@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
 }) => {
   const {
-    baseColor,
+    baseBg,
     buttonSizes,
     colors,
     spacing,
@@ -66,7 +66,7 @@ const Button: React.FC<ButtonProps> = ({
   let buttonColor: string
   switch (variant) {
     case 'secondary':
-      background = baseColor
+      background = baseBg
       buttonColor = colors.primary.main
       break
     case 'tertiary':
