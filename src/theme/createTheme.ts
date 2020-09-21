@@ -109,7 +109,7 @@ const createTheme = (config?: ThemeConfig): {
         main: greyDark[800],
       },
       hslToCssString({ ...whiteDarkHSLA, a: 7.5 }),
-      hslToCssString({ ...blackDarkHSLA, a: 75 }),
+      greyDark[900],
     ),
     textColor: whiteDark,
   }
@@ -130,12 +130,12 @@ const generateGreys = (h: number) => {
     100: hslToCssString({ h, s: 20, l: 96 }),
     200: hslToCssString({ h, s: 20, l: 94 }),
     300: hslToCssString({ h, s: 20, l: 90 }),
-    400: hslToCssString({ h, s: 20, l: 90 }),
+    400: hslToCssString({ h, s: 20, l: 70 }),
     500: hslToCssString({ h, s: 7, l: 52 }),
     600: hslToCssString({ h, s: 10, l: 37 }),
-    700: hslToCssString({ h, s: 17, l: 23 }),
-    800: hslToCssString({ h, s: 25, l: 17 }),
-    900: hslToCssString({ h, s: 42, l: 10 }),
+    700: hslToCssString({ h, s: 17, l: 15 }),
+    800: hslToCssString({ h, s: 20, l: 10 }),
+    900: hslToCssString({ h, s: 20, l: 5 }),
   }
 }
 

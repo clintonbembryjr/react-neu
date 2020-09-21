@@ -19,7 +19,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
 }) => {
 
   const {
-    baseColor,
+    baseBg,
     buttonSizes,
     surfaces
   } = useContext(ThemeContext).theme
@@ -42,7 +42,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
 
   let background: string
   if (active) {
-    background = baseColor
+    background = baseBg
   } else {
      background = 'transparent'
   }

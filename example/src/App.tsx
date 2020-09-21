@@ -12,8 +12,8 @@ import Home from './views/Home'
 
 const App = () => {
   const { dark: darkTheme, light: lightTheme } = createTheme({
-    baseColor: { h: 500, s: 100, l: 41 },
-    baseGreyColorDark: { h: 300, s: 100, l: 50 },
+    baseColor: { h: 338, s: 100, l: 41 },
+    //baseGreyColorDark: { h: 217, s: 19, l: 22 },
     borderRadius: 28,
   })
 
