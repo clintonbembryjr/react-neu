@@ -35,6 +35,7 @@ const Button: React.FC<ButtonProps> = ({
     colors,
     spacing,
     surfaces,
+    textColor
   } = useContext(ThemeContext).theme
 
   let boxShadow: string
@@ -72,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
     case 'tertiary':
       background = 'transparent'
       boxShadow = `${surfaces[0].shadow}, ${surfaces[0].highlight}`
-      buttonColor = colors.primary.main
+      buttonColor = textColor
       break
     case 'default':
     default:
