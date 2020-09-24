@@ -28,11 +28,13 @@ export interface BoxProps {
   position?: 'relative' | 'absolute',
   reverse?: boolean,
   row?: boolean,
+  width?: number
 }
 
 const Box: React.FC<BoxProps> = ({
   children,
   column,
+  height,
   margin = 0,
   marginBottom = 0,
   marginHorizontal = 0,
@@ -53,6 +55,7 @@ const Box: React.FC<BoxProps> = ({
   position,
   reverse,
   row,
+  width,
   ...props
 }) => {
   const { spacing } = useContext(ThemeContext)
@@ -80,6 +83,7 @@ const Box: React.FC<BoxProps> = ({
       {...props}
       display={display}
       flexDirection={flexDirection}
+      height={height}
       margin={spacing[margin || 0]}
       marginBottom={spacing[marginBottom || marginVertical || 0]}
       marginLeft={spacing[marginLeft || marginHorizontal || 0]}
@@ -94,6 +98,7 @@ const Box: React.FC<BoxProps> = ({
       paddingRight={spacing[paddingRight || paddingHorizontal || 0]}
       paddingTop={spacing[paddingTop || paddingVertical || 0]}
       position={position}
+      width={width}
     >
       {children}
     </StyledBox>
@@ -126,6 +131,7 @@ const StyledBox = styled.div<StyledBoxProps>`
   padding-right: ${props => props.paddingRight ? props.paddingRight + 'px' : undefined};
   padding-top: ${props => props.paddingTop ? props.paddingTop + 'px' : undefined};
   position: ${props => props.position};
+  width: ${props => props.width ? props.width + 'px' : undefined};
 `
 
 export default Box
