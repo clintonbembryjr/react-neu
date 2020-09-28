@@ -7,6 +7,7 @@ import {
   CardContent,
   CardTitle,
   Container,
+  Surface,
 } from 'react-neu'
 
 import MyModal from './components/MyModal'
@@ -25,6 +26,9 @@ const Home: React.FC = () => {
   return (
     <>
       <Container>
+        <div style={{ height: 512, width: 512 }}>
+          <Surface fill />
+        </div>
         <Card>
           <CardTitle text="My App" />
           <CardContent>
