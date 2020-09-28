@@ -6,8 +6,8 @@ export interface BoxProps {
   children?: React.ReactNode,
   column?: boolean,
   flex?: number | string,
-  height?: number,
-  justifyContent?: 'center' | 'flex-end' | 'flex-start',
+  height?: number | string,
+  justifyContent?: 'center' | 'flex-end' | 'flex-start' | 'space-around' | 'space-between',
   margin?: number,
   marginBottom?: number,
   marginHorizontal?: number,
@@ -28,7 +28,7 @@ export interface BoxProps {
   position?: 'relative' | 'absolute',
   reverse?: boolean,
   row?: boolean,
-  width?: number
+  width?: number | string
 }
 
 const Box: React.FC<BoxProps> = ({
@@ -78,12 +78,26 @@ const Box: React.FC<BoxProps> = ({
     return undefined
   }, [column])
 
+  const boxHeight = useMemo(() => {
+    if (height) {
+      return typeof height === 'string' ? height : height + 'px'
+    }
+    return undefined
+  }, [height])
+
+  const boxWidth = useMemo(() => {
+    if (width) {
+      return typeof width === 'string' ? width : width + 'px'
+    }
+    return undefined
+  }, [width])
+
   return (
     <StyledBox
       {...props}
       display={display}
       flexDirection={flexDirection}
-      height={height}
+      height={boxHeight}
       margin={spacing[margin || 0]}
       marginBottom={spacing[marginBottom || marginVertical || 0]}
       marginLeft={spacing[marginLeft || marginHorizontal || 0]}
@@ -98,7 +112,7 @@ const Box: React.FC<BoxProps> = ({
       paddingRight={spacing[paddingRight || paddingHorizontal || 0]}
       paddingTop={spacing[paddingTop || paddingVertical || 0]}
       position={position}
-      width={width}
+      width={boxWidth}
     >
       {children}
     </StyledBox>
@@ -115,7 +129,7 @@ const StyledBox = styled.div<StyledBoxProps>`
   display: ${props => props.display};
   flex: ${props => props.flex};
   flex-direction: ${props => props.flexDirection};
-  height: ${props => props.height ? props.height + 'px' : undefined};
+  height: ${props => props.height};
   justify-content: ${props => props.justifyContent};
   margin: ${props => props.margin ? props.margin + 'px' : undefined};
   margin-bottom: ${props => props.marginBottom ? props.marginBottom + 'px' : undefined};
@@ -131,7 +145,7 @@ const StyledBox = styled.div<StyledBoxProps>`
   padding-right: ${props => props.paddingRight ? props.paddingRight + 'px' : undefined};
   padding-top: ${props => props.paddingTop ? props.paddingTop + 'px' : undefined};
   position: ${props => props.position};
-  width: ${props => props.width ? props.width + 'px' : undefined};
+  width: ${props => props.width};
 `
 
 export default Box

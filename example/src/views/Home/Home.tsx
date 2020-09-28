@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 
 import {
+  Box,
   Button,
   Card,
   CardActions,
@@ -27,7 +28,9 @@ const Home: React.FC = () => {
     <>
       <Container>
         <div style={{ height: 512, width: 512 }}>
-          <Surface fill />
+          <Box height={32} width={32}>
+            <Surface fill />
+          </Box>
         </div>
         <Card>
           <CardTitle text="My App" />
