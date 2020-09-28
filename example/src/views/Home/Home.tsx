@@ -28,7 +28,7 @@ const Home: React.FC = () => {
     <>
       <Container>
         <div style={{ height: 512, width: 512 }}>
-          <Box height={32} width={32}>
+          <Box height="100%" width="100%" maxHeight={64} maxWidth={128}>
             <Surface fill />
           </Box>
         </div>

@@ -15,6 +15,8 @@ export interface BoxProps {
   marginRight?: number,
   marginTop?: number,
   marginVertical?: number,
+  maxHeight?: number | string,
+  maxWidth?: number | string,
   minHeight?: number,
   minWidth?: number,
   overflow?: string,
@@ -42,6 +44,8 @@ const Box: React.FC<BoxProps> = ({
   marginRight = 0,
   marginTop = 0,
   marginVertical = 0,
+  maxHeight,
+  maxWidth,
   minHeight,
   minWidth,
   overflow,
@@ -92,6 +96,20 @@ const Box: React.FC<BoxProps> = ({
     return undefined
   }, [width])
 
+  const maxBoxHeight = useMemo(() => {
+    if (maxHeight) {
+      return typeof maxHeight === 'string' ? maxHeight : maxHeight + 'px'
+    }
+    return undefined
+  }, [maxHeight])
+
+  const maxBoxWidth = useMemo(() => {
+    if (maxWidth) {
+      return typeof maxWidth === 'string' ? maxWidth : maxWidth + 'px'
+    }
+    return undefined
+  }, [maxWidth])
+
   return (
     <StyledBox
       {...props}
@@ -103,6 +121,8 @@ const Box: React.FC<BoxProps> = ({
       marginLeft={spacing[marginLeft || marginHorizontal || 0]}
       marginRight={spacing[marginRight || marginHorizontal || 0]}
       marginTop={spacing[marginTop || marginVertical || 0]}
+      maxHeight={maxBoxHeight}
+      maxWidth={maxBoxWidth}
       minHeight={minHeight}
       minWidth={minWidth}
       overflow={overflow}
@@ -136,6 +156,8 @@ const StyledBox = styled.div<StyledBoxProps>`
   margin-left: ${props => props.marginLeft ? props.marginLeft + 'px' : undefined};
   margin-right: ${props => props.marginRight ? props.marginRight + 'px' : undefined};
   margin-top: ${props => props.marginTop ? props.marginTop + 'px' : undefined};
+  max-height: ${props => props.maxHeight};
+  max-width: ${props => props.maxWidth};
   min-height: ${props => props.minHeight ? props.minHeight + 'px' : undefined};
   min-width: ${props => props.minWidth ? props.minWidth + 'px' : undefined};
   overflow: ${props => props.overflow};
